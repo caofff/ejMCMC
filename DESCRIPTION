@@ -1,0 +1,9 @@
+Package: ejMCMC
+Type: Package
+Title: Accelerating approximate Bayesian computation methods based on Gaussian processes
+Version: 0.1.0
+Author: Xuefei Cao, Yongdao Zhou, Shijia Wan
+Maintainer: The package maintainer <2120200117@nankai.edu.cn>
+Description: An early rejection Markov chain Monte Carlo sampler based on Gaussian processes to accelerate inference speed.
+Encoding: UTF-8
+LazyData: true
