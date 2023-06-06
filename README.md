@@ -12,6 +12,9 @@ Quick Start
 ------------
 
 
+function ejMCMC()
+-----
+
 Input Arguments
 -----
 - N: Total number of MCMC iterations.
@@ -34,5 +37,57 @@ Output
 Demo
 -----
 We refer users to 'R/Example.R' for  an example. 
+
+
+function Trian_SMC()
+-----
+A function to sequentially generate training data using the ABC SMC algorithm with OejMCMC as proposals.
+
+Input Arguments
+-----
+- N: Number of parameters at each iteration.
+- N_sim:  The number of simulations.
+- theta0: Initial parameters.
+- dis0: Initial discrepancies.
+- Dis: Discrepancy function, the input of which is parameter theta.
+- dprior: The prior density.
+- h_fun: The prediction function  h.
+- Kernel: The type of kernel function in the definition of ABC, Kernel=Uniform','Tringular','Epanechnikov','Quartic','Triweight' or 'Tricube'.
+- gamma1: The scale parameter to update threshold.
+- gamma2: gamma2*N is the effective sample size.
+- eps.tag:  Target threshold epsilon.
+
+Output
+-----
+- Train data set, the last column of which is discrepancies.
+
+Demo
+-----
+We refer users to 'R/Example.R' for  an example. 
+
+function ejASMC()
+-----
+Early rejection adaptive sequential Monte Carlo
+
+Input Arguments
+-----
+- N: Number of parameters at each iteration
+- eps.tag:  Target threshold epsilon
+- theta0: Initial parameters
+- dis0: Initial discrepancies
+- Dis: Discrepancy function, the input of which is parameter theta
+- dprior: The prior density
+- h_fun: The prediction function  h
+- Kernel: The type of kernel function in the definition of ABC, Kernel=Uniform','Tringular','Epanechnikov','Quartic','Triweight' or 'Tricube'.
+- gamma1: The scale parameter to update threshold
+- gamma2: gamma2*N is the effective sample size
+
+Output
+-----
+- The parameters from the posterior distribution.
+
+Demo
+-----
+We refer users to 'R/Example.R' for  an example.
 
 
