@@ -26,7 +26,7 @@ Resample <- function(W,N){
 #' @param gamma2 gamma2*N is the effective sample size.
 #' @param eps.tag  Target threshold epsilon.
 #'
-#' @return the parameters from the posterior distribution
+#' @return Train data set, the last column of which is discrepancies.
 #' @export
 #'
 #' @examples
