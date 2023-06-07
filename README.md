@@ -16,7 +16,6 @@ function Trian_SMC()
 A function to sequentially generate training data using the ABC SMC algorithm with OejMCMC as proposals.
 
 Input Arguments
------
 - N: Number of parameters at each iteration.
 - N_sim:  The number of simulations.
 - theta0: Initial parameters.
@@ -30,7 +29,6 @@ Input Arguments
 - eps.tag:  Target threshold epsilon.
 
 Output
------
 - Train data set, the last column of which is discrepancies.
 
 
@@ -39,7 +37,6 @@ function ejMCMC()
 An early rejection ABC Markov chain Monte Carlo
 
 Input Arguments
------
 - N: Total number of MCMC iterations.
 - eps: ABC threshold.
 - theta0: The initial parameter.
@@ -63,7 +60,6 @@ function ejASMC()
 An early rejection adaptive sequential Monte Carlo
 
 Input Arguments
------
 - N: Number of parameters at each iteration
 - eps.tag:  Target threshold epsilon
 - theta0: Initial parameters
@@ -76,7 +72,6 @@ Input Arguments
 - gamma2: gamma2*N is the effective sample size
 
 Output
------
 - The parameters from the posterior distribution.
 
 Demo
