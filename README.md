@@ -11,34 +11,6 @@ install_github(``caofff/ejMCMC'')
 Quick Start
 ------------
 
-
-function ejMCMC()
------
-
-Input Arguments
------
-- N: Total number of MCMC iterations.
-- eps: ABC threshold.
-- theta0: The initial parameter.
-- dis0: The initial discrepancy.
-- Dis: The discrepancy function, the input and output of which are parameters(theta) and discrepancy between the synthetic data and observed data.
-- dprior: The prior density function.
-- Sigma_prop: The covariance matrix of Gaussian proposal distribution.
-- h_fun: The prediction function h().
-- Kernel: The type of kernel function in the definition of ABC, Kernel=Uniform','Tringular','Epanechnikov','Quartic','Triweight' or 'Tricube'.
-
-Output
------
-- num_pre: The number of predictions. 
-- num_simu: The number of simulations.
-- num_acc: The number of accepted parameters.
-- Theta_re: The ABC posterior distribution of parameters.
-
-Demo
------
-We refer users to 'R/Example.R' for  an example. 
-
-
 function Trian_SMC()
 -----
 A function to sequentially generate training data using the ABC SMC algorithm with OejMCMC as proposals.
@@ -61,13 +33,34 @@ Output
 -----
 - Train data set, the last column of which is discrepancies.
 
-Demo
+
+function ejMCMC()
 -----
-We refer users to 'R/Example.R' for  an example. 
+An early rejection ABC Markov chain Monte Carlo
+
+Input Arguments
+-----
+- N: Total number of MCMC iterations.
+- eps: ABC threshold.
+- theta0: The initial parameter.
+- dis0: The initial discrepancy.
+- Dis: The discrepancy function, the input and output of which are parameters(theta) and discrepancy between the synthetic data and observed data.
+- dprior: The prior density function.
+- Sigma_prop: The covariance matrix of Gaussian proposal distribution.
+- h_fun: The prediction function h().
+- Kernel: The type of kernel function in the definition of ABC, Kernel=Uniform','Tringular','Epanechnikov','Quartic','Triweight' or 'Tricube'.
+
+Output
+- num_pre: The number of predictions. 
+- num_simu: The number of simulations.
+- num_acc: The number of accepted parameters.
+- Theta_re: The ABC posterior distribution of parameters.
+
+
 
 function ejASMC()
 -----
-Early rejection adaptive sequential Monte Carlo
+An early rejection adaptive sequential Monte Carlo
 
 Input Arguments
 -----
