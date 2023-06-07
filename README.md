@@ -2,7 +2,7 @@
 
 Summary
 -------
-ejMCMC is an R package of a recently proposed approximate Bayesian computing method that targets for problems with intractable or missing likelihood function. It is early rejection Markov chain Monte Carlo (ejMCMC) sampler based on Gaussian processes to accelerate inference speed. 
+ejMCMC is an R package of a recently proposed approximate Bayesian computing method that targets for problems with intractable or missing likelihood function. An early rejection Markov chain Monte Carlo (ejMCMC) sampler based on Gaussian processes is utilized to accelerate inference speed. There are three functions in the package: Trian_SMC(), ejMCMC() and ejASMC(). 
 
 Installation
 ------------
