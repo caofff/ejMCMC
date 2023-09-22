@@ -54,6 +54,7 @@ ejASMC <- function(N,eps.tag,theta0,dis0,Dis,dprior,h_fun,Kernel='Uniform',gamma
   t=1
   Theta1 <- theta1
   dis1 <- dis0
+  hat_dis_old <- dis1
   Weight <- data.frame(matrix(NA,nrow=N,ncol=1))
   Weight[,t] <- 1/N
   Theta_Re <- list(Theta1)
@@ -85,7 +86,9 @@ ejASMC <- function(N,eps.tag,theta0,dis0,Dis,dprior,h_fun,Kernel='Uniform',gamma
     Theta_temp <- exp(t(apply(log(Theta_Re[[t-1]][id.alive,]),1,function(x) mvrnorm(1,x,pro_var))))
     w <- runif(length(id.alive))
     #ordinary ejMCMC
-    alpha_breve <- apply(Theta_temp,1,dprior)/(apply(Theta_Re[[t-1]][id.alive,],1,dprior)*K_fun(Dis_Re[id.alive,t],Eps[t],type=Kernel))
+    alpha_breve <- apply(Theta_temp,1,dprior)/(apply(Theta_Re[[t-1]][id.alive,],1,dprior)*
+                                                 min(K_fun(Dis_Re[id.alive,t],Eps[t],type=Kernel),
+                                                     K_fun(dis_hat_old[id.alive,t],Eps[t],type=Kernel)))
     id1 <- which(w<alpha_breve)
     #ejMCMC
     dis_hat <- h_fun(Theta_temp[id1,])
@@ -97,6 +100,7 @@ ejASMC <- function(N,eps.tag,theta0,dis0,Dis,dprior,h_fun,Kernel='Uniform',gamma
     id3 <- id2[w[id2]<alpha_hat]
     Theta_Re[[t]][id.alive[id3],] <- Theta_temp[id3,]
     Dis_Re[id.alive[id3],t] <- dis_temp[w[id2]<alpha_hat]
+    dis_hat_old[id.alive[id3]] <- dis_hat[id.alive[id3]]
   }
   id <- Resample(Weight[,t],N)
   Theta_re <- Theta_Re[[t]][id,]
