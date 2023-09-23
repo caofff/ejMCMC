@@ -54,7 +54,6 @@ ejASMC <- function(N,eps.tag,theta0,dis0,Dis,dprior,h_fun,Kernel='Uniform',gamma
   t=1
   Theta1 <- theta0
   dis1 <- dis0
-  dis_hat_old <- dis1
   Weight <- data.frame(matrix(NA,nrow=N,ncol=1))
   Weight[,t] <- 1/N
   Theta_Re <- list(Theta1)
@@ -103,7 +102,6 @@ ejASMC <- function(N,eps.tag,theta0,dis0,Dis,dprior,h_fun,Kernel='Uniform',gamma
     id3 <- which(w<alpha_hat)
     Theta_Re[[t]][id3,] <- Theta_temp[id3,]
     Dis_Re[id3,t] <- dis_temp[id3]
-    dis_hat_old[id3] <- dis_hat[id3]
   }
   id <- Resample(Weight[,t],N)
   Theta_re <- Theta_Re[[t]][id,]
