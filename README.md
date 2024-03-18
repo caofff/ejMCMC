@@ -78,7 +78,7 @@ Demo
 -----
 We refer users to 'R/Example.R' for  an example.
 
-'Online_GP.py' is an example of ejMCMC with online-GP \citep{stanton2021onlineGP} discrepancy model for toy example.
+'Online_GP.py' is an example of ejMCMC with online-GP discrepancy model for toy example.
 Please install the online_gp package from https://github.com/wjmaddox/online_gp.git first.
 
 
